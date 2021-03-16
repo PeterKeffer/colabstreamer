@@ -87,7 +87,7 @@ def config_all():
 def _generic_stream(stream_url, stream_secret):
   _xorg = subprocess.Popen(["Xorg", "-seat", "seat-1", "-allowMouseOpenFail", "-novtswitch", "-nolisten", "tcp"])
   _i3 = subprocess.Popen("i3", env=envc, shell=True)
-  _ffmpeg = subprocess.Popen(["ffmpeg", "-threads:v", "2", "-hwaccel", "cuda", "-threads:a", "8", "-filter_threads", "2", "-thread_queue_size", 
+  _ffmpeg = subprocess.Popen(["ffmpeg", "-threads:v", "2", "-threads:a", "8", "-filter_threads", "2", "-thread_queue_size", 
                               "512", "-f", "x11grab", "-s", "1920x1080", "-framerate", "30", "-i", ":0.0", "-b:v", "1400k", 
                               "-minrate:v", "1400k", "-maxrate:v", "1400k", "-bufsize:v", "1400k", "-c:v", "h264_nvenc", 
                               "-qp:v", "19", "-profile:v", "high", "-rc:v", "cbr_ld_hq", "-r:v", "60", "-g:v", "120", 
