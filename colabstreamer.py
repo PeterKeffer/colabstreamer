@@ -46,7 +46,7 @@ def _install_everything():
   _combo_installer(packages_to_install)
 
 def _config_xorg():
-  _download("http://us.download.nvidia.com/tesla/460.56/NVIDIA-Linux-x86_64-460.56.run", "nvidia.run")
+  _download("http://us.download.nvidia.com/tesla/460.32.03/NVIDIA-Linux-x86_64-460.32.03.run", "nvidia.run")
   pathlib.Path("nvidia.run").chmod(stat.S_IXUSR)
   subprocess.run(["./nvidia.run", "--no-kernel-module", "--ui=none"], input = "1\n\n\n\n", shell = True, universal_newlines = True)
 
