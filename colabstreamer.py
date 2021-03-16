@@ -51,7 +51,7 @@ def _config_xorg():
   out = subprocess.run(["./nvidia.run", "--no-kernel-module", "--ui=none"], input = "\n\n\n\n", universal_newlines = True, capture_output=True, text=True).stdout.strip("\n")
   print(out)
 
-  subprocess.run(["nvidia-xconfig",
+  out = subprocess.run(["nvidia-xconfig",
                   "-a",
                   "--allow-empty-initial-configuration",
                   "--virtual=1920x1080",
