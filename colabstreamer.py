@@ -82,6 +82,7 @@ def config_all():
   _install_everything()
   _config_xorg()
   _config_i3()
+  print("DONE")
 
 def _generic_stream(stream_url, stream_secret):
   _xorg = subprocess.Popen(["Xorg", "-seat", "seat-1", "-allowMouseOpenFail", "-novtswitch", "-nolisten", "tcp"])
