@@ -48,14 +48,14 @@ def _install_everything():
 def _config_xorg():
   _download("http://us.download.nvidia.com/tesla/460.32.03/NVIDIA-Linux-x86_64-460.32.03.run", "nvidia.run")
   pathlib.Path("nvidia.run").chmod(stat.S_IXUSR)
-  subprocess.run(["./nvidia.run", "--no-kernel-module", "--ui=none"], input = "1\n\n\n\n", check = True, universal_newlines = True)
+  subprocess.run(["./nvidia.run", "--no-kernel-module", "--ui=none"], input = "1\n\n\n\n", shell = True, universal_newlines = True)
 
   subprocess.run(["nvidia-xconfig",
                   "-a",
                   "--allow-empty-initial-configuration",
                   "--virtual=1920x1080",
                   "--busid", "PCI:0:4:0"],
-                  check = True)
+                  shell = True)
 
   with open("/etc/X11/xorg.conf", "r") as f:
     conf = f.read()
