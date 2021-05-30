@@ -48,7 +48,7 @@ def _install_everything():
 def _config_xorg():
   _download("http://us.download.nvidia.com/tesla/460.32.03/NVIDIA-Linux-x86_64-460.32.03.run", "nvidia.run")
   pathlib.Path("nvidia.run").chmod(stat.S_IXUSR)
-  out = subprocess.run(["./nvidia.run", "--no-kernel-module", "--ui=none"], input = "1\n\n\n\n", universal_newlines = True, capture_output=True, text=True).stdout.strip("\n")
+  out = subprocess.run(["./nvidia.run", "--no-kernel-module", "--ui=none"], input = "1\n1\n1\n1\n", universal_newlines = True, capture_output=True, text=True).stdout.strip("\n")
   print(out)
 
   out = subprocess.run(["nvidia-xconfig",
