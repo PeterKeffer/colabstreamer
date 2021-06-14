@@ -1,4 +1,4 @@
-#import apt, apt.debfile
+import apt, apt.debfile
 import pathlib, stat, shutil, urllib.request, subprocess, getpass, time
 import secrets, json, re
 import IPython.utils.io
@@ -39,18 +39,13 @@ def _combo_installer(all_packages):
 
   cache.commit()
 
-def installPackage(packageName):
-  print(packageName)
-  subprocess.run(["apt-get", "install", "-y", packageName])
-
 def _install_everything():
   packages_to_install = ["xvfb", "xserver-xorg", "mesa-utils", "xinit", "xdotool",
                 "linux-generic", "xterm", "htop", "i3", "xloadimage", "libgtk2.0-0", "libgconf-2-4"]
 
-  # _combo_installer(packages_to_install)
-  for package in packages_to_install:
-    installPackage(package)
-
+  _combo_installer(packages_to_install)
+  
+  
 def _config_xorg():
   _download("http://us.download.nvidia.com/tesla/460.32.03/NVIDIA-Linux-x86_64-460.32.03.run", "nvidia.run")
   pathlib.Path("nvidia.run").chmod(stat.S_IXUSR)
