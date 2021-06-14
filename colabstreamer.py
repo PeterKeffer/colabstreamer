@@ -40,7 +40,6 @@ def _combo_installer(all_packages):
   cache.commit()
 
 def installPackage(packageName):
-  subprocess.run(["sudo", "apt", "install", "-y", packageName], check=True)
   subprocess.run(["apt", "install", "-y", packageName], check=True)
 
 def _install_everything():
