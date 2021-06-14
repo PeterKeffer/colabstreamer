@@ -1,4 +1,4 @@
-import apt, apt.debfile
+#import apt, apt.debfile
 import pathlib, stat, shutil, urllib.request, subprocess, getpass, time
 import secrets, json, re
 import IPython.utils.io
