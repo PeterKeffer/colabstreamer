@@ -40,7 +40,8 @@ def _combo_installer(all_packages):
   cache.commit()
 
 def installPackage(packageName):
-  subprocess.run(["apt", "install", "-y", packageName])
+  print(packageName)
+  subprocess.run(["apt-get", "install", "-y", packageName])
 
 def _install_everything():
   packages_to_install = ["xvfb", "xserver-xorg", "mesa-utils", "xinit", "xdotool",
